@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true thanhnd/react-test npm test
 
 after_success:
-  - docker build -t thanhnd/multi-client ./client
-  - docker build -t thanhnd/multi-nginx ./nginx
-  - docker build -t thanhnd/multi-server ./server
-  - docker build -t thanhnd/multi-worker ./worker
+  - docker build -t killickick/multi-client ./client
+  - docker build -t killickick/multi-nginx ./nginx
+  - docker build -t killickick/multi-server ./server
+  - docker build -t killickick/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push thanhnd/multi-client
-  - docker push thanhnd/multi-nginx
-  - docker push thanhnd/multi-server
-  - docker push thanhnd/multi-worker
+  - docker push killickick/multi-client
+  - docker push killickick/multi-nginx
+  - docker push killickick/multi-server
+  - docker push killickick/multi-worker
