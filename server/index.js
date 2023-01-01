@@ -25,6 +25,8 @@ pgClient.on("connect", (client) => {
     .catch((err) => console.error(err));
 });
 
+pgClient.on("error", () => console.log('Lost PG connection'));
+
 // Redis Client Setup
 const redis = require("redis");
 const redisClient = redis.createClient({
